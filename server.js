@@ -5,6 +5,8 @@ var mongo = require("mongodb").MongoClient;
 var mongourl = "mongodb://searchhistory:history@ds127260.mlab.com:27260/imgsearch";
 var app = express();
 
+app.use(express.static("public"));
+
 app.use("/search/", function(req, res){
     var url = (req.path).slice(1);
     var insertobj = {
