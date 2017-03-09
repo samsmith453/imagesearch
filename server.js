@@ -5,6 +5,8 @@ var mongo = require("mongodb").MongoClient;
 var mongourl = "mongodb://searchhistory:history@ds127260.mlab.com:27260/imgsearch";
 var app = express();
 
+app.listen(process.env.PORT);
+
 app.use(express.static("public"));
 
 app.use("/search/", function(req, res){
@@ -39,9 +41,6 @@ app.use("/history/", function(req, res){
         });
     });
 });
-
-
-app.listen(process.env.PORT);
 
 function searcher(url, callback){
     request({
